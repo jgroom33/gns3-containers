@@ -11,17 +11,17 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-rec
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/default_dhcpd.conf /etc/dhcp/dhcpd.conf
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/vsftpd.conf /etc/vsftpd.conf
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/pam_d-vsftpd /etc/pam.d/vsftpd
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/rsyslog.conf /etc/rsyslog.conf
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/starter.sh /sbin/starter.sh
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/default_tftpd-hpa /etc/default/tftpd-hpa
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/default_snmptrapd /etc/default/snmptrapd
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/snmpd.conf /etc/snmp/snmpd.conf
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/snmptrapd.conf /etc/snmp/snmptrapd.conf
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/index.html /var/www/html/index.html
-ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/gns3.png /var/www/html/gns3.png
+ADD dhcp/dhcpd.conf     /etc/dhcp/dhcpd.conf
+ADD ftp/vsftpd.conf     /etc/vsftpd.conf
+ADD ftp/pam_d-vsftpd    /etc/pam.d/vsftpd
+ADD syslog/rsyslog.conf /etc/rsyslog.conf
+ADD tftp/tftpd-hpa      /etc/default/tftpd-hpa
+ADD snmp/snmptrapd      /etc/default/snmptrapd
+ADD snmp/snmpd.conf     /etc/snmp/snmpd.conf
+ADD snmp/snmptrapd.conf /etc/snmp/snmptrapd.conf
+ADD index.html          /var/www/html/index.html
+ADD gns3.png            /var/www/html/gns3.png
+ADD starter.sh          /sbin/starter.sh
 
 RUN DEBIAN_FRONTEND=noninteractive chmod 755 /sbin/starter.sh; mkdir /tftpboot; chmod 777 /tftpboot; echo root:gns3 | chpasswd; chmod 644 /var/www/html/*
 
