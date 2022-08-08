@@ -22,6 +22,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: net_toolbox
+          context: "{{defaultContext}}:net_toolbox"
           push: true
           tags: jgroom/gns3_toolbox:latest
