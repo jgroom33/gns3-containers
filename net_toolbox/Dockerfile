@@ -11,6 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-rec
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
+ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/default_dhcpd.conf /etc/dhcp/dhcpd.conf
 ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/vsftpd.conf /etc/vsftpd.conf
 ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/pam_d-vsftpd /etc/pam.d/vsftpd
 ADD https://raw.githubusercontent.com/adosztal/gns3-containers/master/net_toolbox/rsyslog.conf /etc/rsyslog.conf
@@ -26,4 +27,3 @@ RUN DEBIAN_FRONTEND=noninteractive chmod 755 /sbin/starter.sh; mkdir /tftpboot; 
 
 VOLUME [ "/root", "/tftpboot", "/var/log", "/var/www", "/etc" ]
 CMD [ "sh", "-c", "/sbin/starter.sh" ]
-
