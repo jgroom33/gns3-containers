@@ -1,5 +1,6 @@
 # (Re)starting services
 # snmpd hangs after stop, it needs to be killed manually
+ifconfig eth0 192.168.122.3
 /etc/init.d/rsyslog start >/dev/null 2>/dev/null
 /etc/init.d/nginx start >/dev/null 2>/dev/null
 /etc/init.d/vsftpd start >/dev/null 2>/dev/null
