@@ -7,6 +7,7 @@ RUN DEBIAN_FRONTEND=noninteractive ln -fs /usr/share/zoneinfo/Etc/UTC /etc/local
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-recommends \
     install telnet curl openssh-client nano vim-tiny iputils-ping build-essential \
     net-tools nginx vsftpd isc-dhcp-server tftpd-hpa snmpd snmptrapd rsyslog \
+    python3 python3-pip \
     && dpkg-reconfigure --frontend noninteractive tzdata \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
