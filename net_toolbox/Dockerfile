@@ -12,6 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y --no-install-rec
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
+ADD motd                    /etc/motd
 ADD dhcp/dhcpd.conf         /etc/dhcp/dhcpd.conf
 ADD dhcp/isc-dhcp-server    /etc/default/isc-dhcp-server
 ADD ftp/vsftpd.conf         /etc/vsftpd.conf
