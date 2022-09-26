@@ -11,12 +11,12 @@
        *********************************************************************
        *********************************************************************
        ******         DHCP server using isc                          *******
-       ******  leases:         cat /var/lib/dhcp/dhcpd.leases        *******
+       ******  leases:         cat /var/log/dhcp.leases              *******
        ******  logs:           cat /var/log/syslog                   *******
-       ******  update config:  sudo nano /etc/dhcp/dhcpd.conf        *******
-       ******                  sudo service isc-dhcp-server restart  *******
-       ******  flush leases:   sudo service isc-dhcp-server stop     *******
-       ******                  sudo rm /var/lib/dhcp/dhcpd.leases    *******
-       ******                  sudo service isc-dhcp-server start    *******
+       ******  update config:  nano /etc/dhcp/dhcpd.conf             *******
+       ******                  service isc-dhcp-server restart       *******
+       ******  flush leases:   service isc-dhcp-server stop          *******
+       ******                  rm /var/log/dhcp.leases               *******
+       ******                  service isc-dhcp-server start         *******
        *********************************************************************
        *********************************************************************
